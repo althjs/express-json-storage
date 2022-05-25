@@ -1,0 +1,11 @@
+{
+  "name": "express-json-storage",
+  "version": "1.0.0",
+  "description": "JSON file storage for ExpressJS middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "althjs",
+  "license": "MIT"
+}
