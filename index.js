@@ -5,13 +5,19 @@ const fileStorage = require('./json-storage/fileStorage');
 let config = {};
 
 
-function fileHandler(req, res, next) {
+async function fileHandler(req, res, next) {
+  let isHandled = false;
   switch (req.method) {
     case 'GET':
-      return fileStorage.handleGET(req, res, config);
+      isHandled = await fileStorage.handleGET(req, res, config);
+      break;
     case 'PUT':
     case 'POST':
-      return fileStorage.handlePOST(req, res, config);
+      isHandled = await fileStorage.handlePOST(req, res, config);
+  }
+
+  if (!isHandled) {
+    next();
   }
 }
 
